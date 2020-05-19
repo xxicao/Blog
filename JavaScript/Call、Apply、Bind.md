@@ -1,11 +1,14 @@
 # call , bind , apply
-令this指向传递的第一个参数，如果第一个参数为null，undefined或是不传，则指向全局变量
-1、call、apply、bind 是Function.prototype下的方法，是每个函数都包含的方法，用于改变函数运行时上下文
-2、apply和call方法的第一个参数都是特定的作用域，第二个参数不同，call的参数是从第二个开始罗列，apply是将参数以数组形式作为第二个参数
-3、bind()方法调用并改变函数运行时上下文后，返回一个新的函数，供我们需要时再调用
-手写apply,bind,call原理：利用对象调用函数时，内部this指向该对象的特性改变this
-https://juejin.im/post/5d2ddd9be51d4556d86c7b79#heading-10
-过程：用的不是function就返回或者抛出错误等临界条件另做判断
+作用：令 this 指向传递的第一个参数，如果第一个参数为 null ，undefined 或是不传，则指向全局对象。
+#### 注意：
+- call、apply、bind 是 Function.prototype 下的方法，是每个函数都包含的方法，用于改变函数运行时上下文。
+- apply 和 call 方法的第一个参数都是特定的作用域，第二个参数不同，call 的参数是从第二个开始罗列，apply 是将参数以数组形式作为第二个参数。
+- `bind()`方法调用并改变函数运行时上下文后，返回一个新的函数，供我们需要时再调用。
+
+### 手写apply,bind,call
+#### Apply
+原理：利用对象调用函数时，内部 this 指向该对象的特性来改变 this ，当调用者不是 function 等临界条件先不做判断
+```javascript
 Function.prototype.myApply = function (context, args) {
     //这里默认不传或者null和undefined就是给window,也可以用es6给参数设置默认参数
     context = context || window;
@@ -21,17 +24,23 @@ Function.prototype.myApply = function (context, args) {
     //返回函数调用的返回值
     return result;
 }
-call的实现即将args改为...args接收多个参数，或用arguments实现
-bind的实现返回一个函数可以传参数，同时多判断一个new操作符
+```
+#### Call
+call 的实现将 args 改为`...args`接收多个参数即可，或用 arguments 实现
+#### Bind
+bind 的实现返回一个函数可以传参数，同时多判断一个 new 操作符
+```javascript
 Function.prototype.myBind = function (context, ...args) { 
-// 取调用函数，需要改变上下文的函数
-const fn = this;
-args = args ? args : [] ;
-return function newFn(...newFnArgs) { 
-// 此处this是new的时候的构造函数内部this
-if (this instanceof newFn) { 
-return new fn(...args, ...newFnArgs) 
-} 
-return fn.apply(context, [...args,...newFnArgs]) 
-} ;
+    // 取调用函数，需要改变上下文的函数
+    const fn = this;
+    args = args ? args : [] ;
+    return function newFn(...newFnArgs) { 
+    // 此处this是new的时候的构造函数内部this
+    if (this instanceof newFn) { 
+        return new fn(...args, ...newFnArgs) 
+    } 
+        return fn.apply(context, [...args,...newFnArgs]) 
+    } ;
 }
+```
+
