@@ -2,17 +2,17 @@
 个人写博客总结的地方，见证自己每一步的成长。如有错误之处，请不吝赐教。
 
 ## Javascript
-- [数据类型](https://github.com/xxicao/Blog/blob/master/JavaScript/数据类型.md)
-- [对象原型、原型链](https://github.com/xxicao/Blog/blob/master/JavaScript/对象原型、原型链.md)
-- [对象继承](https://github.com/xxicao/Blog/blob/master/JavaScript/对象继承.md)
+- [数据类型](https://github.com/xxicao/Blog/blob/master/JavaScript/数据类型.md) （√）
+- [对象原型、原型链](https://github.com/xxicao/Blog/blob/master/JavaScript/对象原型、原型链.md) （√）
+- [对象继承](https://github.com/xxicao/Blog/blob/master/JavaScript/对象继承.md) （√）
 - [作用域、作用域链](https://github.com/xxicao/Blog/blob/master/JavaScript/作用域、作用域链.md)
 - [闭包](https://github.com/xxicao/Blog/blob/master/JavaScript/闭包.md)
 - [执行机制（事件循环）](https://github.com/xxicao/Blog/blob/master/JavaScript/执行机制（事件循环）.md)
 - [浏览器存储](https://github.com/xxicao/Blog/blob/master/JavaScript/作用域、作用域链.md)
-- [浏览器渲染过程](https://github.com/xxicao/Blog/blob/master/JavaScript/浏览器渲染过程.md)
-- [页面解析流程](https://github.com/xxicao/Blog/blob/master/JavaScript/页面解析流程.md)
 - [HTTP协议](https://github.com/xxicao/Blog/blob/master/JavaScript/HTTP协议.md)
 - [跨域](https://github.com/xxicao/Blog/blob/master/JavaScript/跨域.md)
+- [浏览器渲染过程](https://github.com/xxicao/Blog/blob/master/JavaScript/浏览器渲染过程.md)
+- [页面解析流程](https://github.com/xxicao/Blog/blob/master/JavaScript/页面解析流程.md)
 - [前端安全](https://github.com/xxicao/Blog/blob/master/JavaScript/前端安全.md)
 - [前端性能优化](https://github.com/xxicao/Blog/blob/master/JavaScript/前端性能优化.md)
 - [设计模式](https://github.com/xxicao/Blog/blob/master/JavaScript/设计模式.md)
