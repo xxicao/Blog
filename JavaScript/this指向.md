@@ -19,20 +19,20 @@ var foo = {
 console.log((false || foo.bar)()); // 1
 ```
 ### 实际场景：
-- 1、作为对象调用时，指向该对象 obj.b(); // 指向obj
-- 2、作为函数调用, var b = obj.b; b(); // 指向全局window
-- 3、作为构造函数调用 var b = new Fun(); // this指向当前实例对象
-- 4、作为 call 与 apply 调用 obj.b.apply(object, []); // this指向当前的object
-- 5、事件监听函数中的 this 指向被绑定的 dom 元素，注意需要动态绑定 this ，不能使用箭头函数
-- 6、HTML 标签的属性中是可能写JS的，这种情况下 this 指代该 HTML 元素
-- 7、箭头函数比较特殊，没有自己的 this，它使用封闭执行上下文(函数或是 global，变量的作用域链)的 this 值。
-- 8、计时器回调函数中的 this 指向 window ，如果是箭头函数是封闭执行上下文(函数或是 global ，变量的作用域链)的 this 值
+1. 作为对象调用时，指向该对象 obj.b(); // 指向 obj
+2. 作为函数调用, var b = obj.b; b(); // 指向全局 window
+3. 作为构造函数调用 var b = new Fun(); // this指向当前实例对象
+4. 作为 call 与 apply 调用 obj.b.apply(object, []); // this 指向当前的 object
+5. 事件监听函数中的 this 指向被绑定的 dom 元素，注意需要动态绑定 this ，不能使用箭头函数
+6. HTML 标签的属性中是可能写JS的，这种情况下 this 指代该 HTML 元素
+7. 箭头函数比较特殊，没有自己的 this，它使用封闭执行上下文(函数或是 global，变量的作用域链)的 this 值。
+8. 计时器回调函数中的 this 指向 window ，如果是箭头函数是封闭执行上下文(函数或是 global ，变量的作用域链)的 this 值
 
 ## call,bind,apply
 令this指向传递的第一个参数，如果第一个参数为 null，undefined 或是不传，则指向全局变量
--1、call、apply、bind 是 Function.prototype 下的方法，是每个函数都包含的方法，用于改变函数运行时上下文
-- 2、apply 和 call 方法的第一个参数都是特定的作用域，第二个参数不同，call 的参数是从第二个开始罗列，apply 是将参数以数组形式作为第二个参数
-- 3、bind() 方法调用并改变函数运行时上下文后，返回一个新的函数，供我们需要时再调用
+1. call、apply、bind 是 Function.prototype 下的方法，是每个函数都包含的方法，用于改变函数运行时上下文
+2. apply 和 call 方法的第一个参数都是特定的作用域，第二个参数不同，call 的参数是从第二个开始罗列，apply 是将参数以数组形式作为第二个参数
+3. bind() 方法调用并改变函数运行时上下文后，返回一个新的函数，供我们需要时再调用
 
 ### apply,bind,call原理：利用对象调用函数时，内部this指向该对象的特性改变this
 调用对象不是 function 就返回或者抛出错误等临界条件另做判断
