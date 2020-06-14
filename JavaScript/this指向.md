@@ -1,9 +1,9 @@
 ## this
 - this 指的是当前正在执行或调用该函数的对象的值。
 - this 值的变化取决于我们使用它的上下文和我们在哪里使用它。
-#### 区分是否严格模式（严格模式下禁止 this 指向全局对象，部分 window 指向是变成 undefined ）
+- 区分是否严格模式（严格模式下禁止 this 指向全局对象，部分 window 指向是变成 undefined ）
 #### Reference 类型：只存在于规范里的抽象类型，描述语言的底层行为逻辑才存在的，由base（属性所在的对象或者就是 EnvironmentRecord）、name、strict组成
-ECMAScript 规范解读：
+ECMAScript 规范中this指向解读：
 - 通过判断()左侧 MemberExpression 的返回的结果是不是一个 Reference 类型（是否调用 GetValue，调用后返回的将是具体的值，而不再是一个 Reference）
 - 是 Reference：1、如果 IsPropertyReference(MemberExpression) ，如果 base value 是一个对象，结果返回 true，如果 base value是 Environment Record，返回 undefined，this指向这个结果
 - 不是 Reference：this 的值为 undefined，非严格模式下隐式转换为全局对象
@@ -34,8 +34,9 @@ console.log((false || foo.bar)()); // 1
 2. apply 和 call 方法的第一个参数都是特定的作用域，第二个参数不同，call 的参数是从第二个开始罗列，apply 是将参数以数组形式作为第二个参数
 3. bind() 方法调用并改变函数运行时上下文后，返回一个新的函数，供我们需要时再调用
 
-### apply,bind,call原理：利用对象调用函数时，内部this指向该对象的特性改变this
-调用对象不是 function 就返回或者抛出错误等临界条件另做判断
+### apply,bind,call原理
+利用对象调用函数时，内部this指向该对象的特性改变this，调用对象不是 function 就返回或者抛出错误等临界条件另做判断
+#### apply
 ```javascript
 Function.prototype.myApply = function (context, args) {
     //这里默认不传或者null和undefined就是给window,也可以用es6给参数设置默认参数
@@ -53,9 +54,11 @@ Function.prototype.myApply = function (context, args) {
     return result;
 }
 ```
-### call的实现即将 args 改为...args 接收多个参数，或用 arguments 实现
+### call
+call 的实现将 args 改为...args 接收多个参数，或用 arguments 实现,其他实现如apply
 
-### bind 的实现返回一个函数可以传参数，同时多判断一个 new 操作符
+### bind 
+bind 的实现返回一个函数可以传参数，同时需要多判断一个 new 操作符
 ```javascript
 Function.prototype.myBind = function (context, ...args) { 
   // 取调用函数，需要改变上下文的函数
