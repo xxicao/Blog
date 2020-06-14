@@ -6,7 +6,8 @@
 - [对象原型、原型链](https://github.com/xxicao/Blog/blob/master/JavaScript/对象原型、原型链.md) （√）
 - [对象继承](https://github.com/xxicao/Blog/blob/master/JavaScript/对象继承.md) （√）
 - [作用域、作用域链](https://github.com/xxicao/Blog/blob/master/JavaScript/作用域、作用域链.md) （√）
-- [闭包](https://github.com/xxicao/Blog/blob/master/JavaScript/闭包.md)
+- [闭包](https://github.com/xxicao/Blog/blob/master/JavaScript/闭包.md) （√）
+- [this指向](https://github.com/xxicao/Blog/blob/master/JavaScript/this指向.md) （√）
 - [执行机制（事件循环）](https://github.com/xxicao/Blog/blob/master/JavaScript/执行机制（事件循环）.md)
 - [浏览器存储](https://github.com/xxicao/Blog/blob/master/JavaScript/作用域、作用域链.md)
 - [HTTP协议](https://github.com/xxicao/Blog/blob/master/JavaScript/HTTP协议.md)
